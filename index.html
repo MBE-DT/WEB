@@ -25,6 +25,18 @@
     </div>
     <script>
       var canvas = document.querySelector("#unity-canvas");
+      function resizeCanvasToDisplaySize(canvas) {
+      const dpr = window.devicePixelRatio || 1;
+      const displayWidth = Math.round(canvas.clientWidth * dpr);
+      const displayHeight = Math.round(canvas.clientHeight * dpr);
+      if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
+        canvas.width = displayWidth;
+        canvas.height = displayHeight;
+      }
+    }
+
+window.addEventListener("resize", () => resizeCanvasToDisplaySize(canvas));
+resizeCanvasToDisplaySize(canvas); // 최초 로드 시에도 한 번 실행
 
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
