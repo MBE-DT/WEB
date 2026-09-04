@@ -103,9 +103,9 @@
 
 
       } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        // Desktop style: fill the whole browser window with the game canvas
+        // (see .unity-desktop rules in style.css) so it renders at the
+        // browser's actual resolution instead of a fixed small box.
       }
 
       function resizeCanvasToDisplaySize(canvas) {
