@@ -103,23 +103,10 @@
 
 
       } else {
-        // Desktop style: fill the whole browser window with the game canvas
-        // (see .unity-desktop rules in style.css) so it renders at the
-        // browser's actual resolution instead of a fixed small box.
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
       }
-
-      function resizeCanvasToDisplaySize(canvas) {
-        const dpr = window.devicePixelRatio || 1;
-        const displayWidth = Math.round(canvas.clientWidth * dpr);
-        const displayHeight = Math.round(canvas.clientHeight * dpr);
-        if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
-          canvas.width = displayWidth;
-          canvas.height = displayHeight;
-        }
-      }
-
-      window.addEventListener("resize", () => resizeCanvasToDisplaySize(canvas));
-      resizeCanvasToDisplaySize(canvas);
 
       document.querySelector("#unity-loading-bar").style.display = "block";
 
@@ -140,8 +127,6 @@
             };
 
       document.body.appendChild(script);
-
-      
 
     </script>
   </body>
